@@ -1,1 +1,23 @@
-<p>telefonos works!</p>
+<div class="container mt-4">
+    <h2>Listado de Teléfonos</h2>
+    <p>Cliente ID: {{ clienteId }}</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Modelo</th>
+          <th>Marca</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let telefono of telefonos">
+          <td>{{ telefono.id }}</td>
+          <td>{{ telefono.modelo }}</td>
+          <td>{{ telefono.marca }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

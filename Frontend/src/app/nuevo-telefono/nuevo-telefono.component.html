@@ -1,1 +1,16 @@
-<p>nuevo-telefono works!</p>
+<div class="container mt-4">
+    <h2>Nuevo Teléfono</h2>
+    <p>Cliente ID: {{ clienteId }}</p>
+    <form [formGroup]="nuevoTelefonoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" formControlName="modelo" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" formControlName="marca" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+  

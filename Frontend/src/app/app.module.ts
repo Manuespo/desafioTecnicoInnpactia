@@ -9,6 +9,8 @@ import { ReparacionesComponent } from './reparaciones/reparaciones.component';
 import { NuevoClienteComponent } from './nuevo-cliente/nuevo-cliente.component';
 import { NuevoTelefonoComponent } from './nuevo-telefono/nuevo-telefono.component';
 import { NuevaReparacionComponent } from './nueva-reparacion/nueva-reparacion.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { NuevaReparacionComponent } from './nueva-reparacion/nueva-reparacion.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

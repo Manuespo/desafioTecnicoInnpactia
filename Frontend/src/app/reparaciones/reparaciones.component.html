@@ -1,1 +1,23 @@
-<p>reparaciones works!</p>
+<div class="container mt-4">
+    <h2>Listado de Reparaciones</h2>
+    <p>Teléfono ID: {{ telefonoId }}</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Descripción</th>
+          <th>Fecha</th>
+          <th>Costo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reparacion of reparaciones">
+          <td>{{ reparacion.id }}</td>
+          <td>{{ reparacion.descripcion }}</td>
+          <td>{{ reparacion.fecha }}</td>
+          <td>{{ reparacion.costo | currency:'USD':'symbol':'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

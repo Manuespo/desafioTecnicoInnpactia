@@ -4,24 +4,24 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const { Sequelize } = require('sequelize');
+const clientsRouter = require('./src/routes/clientes');
 
 var indexRouter = require('./src/routes/index');
 var usersRouter = require('./src/routes/users');
+
 
 var app = express();
 const sequelize = new Sequelize('desafio_innpactia', 'root', '1234_manu', {
   host: 'localhost',
   dialect: 'mysql' });
 
-  async function connect(){
-    try {
-      await sequelize.authenticate();
-      console.info('Connection succesfull.');
-    } catch (error) {
-      console.error('Unable to connect to the database:', error);
-    }
-  }
-  connect();
+    sequelize.authenticate()
+  .then(() => {
+    console.log('Connection succesfull.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/clients',clientsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
